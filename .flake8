@@ -1,0 +1,14 @@
+[flake8]
+# These default settings taken from black's own flake8 file:
+# https://github.com/psf/black/blob/master/.flake8
+ignore = 
+    E203,  # Whitespace before ':'
+    E266,  # Too many leading '#' for block comment 
+    E501,  # Line too long (> 79 characters) 
+    W503,  # Line break occurred before a binary operator
+    F811,  # Redefinition of unused variable (ignored for instances when importing pytest fixtures from another modules) --> not black default
+
+max-line-length = 88
+exclude =
+    .venv/
+    .env/

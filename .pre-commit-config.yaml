@@ -16,10 +16,3 @@ repos:
       entry: black
       types: [python]
       stages: [commit]
-    - id: pytest
-      name: pytest
-      language: system
-      entry: pytest
-      pass_filenames: false
-      always_run: true
-      stages: [push]

@@ -1,0 +1,29 @@
+{
+    "settings": {},
+    "extensions": {
+      "recommendations": [
+        "ms-python.python",
+        "njqdev.vscode-python-typehint",
+        "kevinrose.vsc-python-indent",
+      ]
+    },
+    "folders": [
+      {
+        "name": "Course 1",
+        "path": "./course1"
+      },
+      {
+        "name": "Course 2",
+        "path": "./course2"
+      },
+      {
+        "name": "Course 3",
+        "path": "./course3"
+      },
+      {
+        "name": "Course 4",
+        "path": "./course4"
+      },
+    ],
+  }
+  

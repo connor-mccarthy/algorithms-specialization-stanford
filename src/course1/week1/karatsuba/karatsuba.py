@@ -21,6 +21,7 @@ def karatsuba(int1: int, int2: int) -> int:
 
     ac = karatsuba(a, c)
     bd = karatsuba(b, d)
-    gauss_val = karatsuba((a + b), (c + d))
-    ad_plus_bc = gauss_val - ac - bd
+    gauss_intermediate = karatsuba((a + b), (c + d))
+    ad_plus_bc = gauss_intermediate - ac - bd
+
     return ((10 ** (2 * split_idx)) * ac) + ((10 ** (split_idx)) * ad_plus_bc) + bd

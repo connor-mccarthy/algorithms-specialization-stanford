@@ -18,6 +18,7 @@ jobs:
         pip install --upgrade pip
         pip install poetry
         poetry install
+        poetry shell
     - name: Lint with flake8
       run: |
         flake8 .

@@ -10,9 +10,16 @@ repos:
       types: [python]
       stages: [commit]
     - id: black
+      language: python
       language_version: python3.7
       name: black
-      language: python
       entry: black
+      types: [python]
+      stages: [commit]
+    - id: mypy
+      language: python
+      language_version: python3.7
+      name: mypy
+      entry: mypy
       types: [python]
       stages: [commit]

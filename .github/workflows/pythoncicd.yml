@@ -16,9 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install --upgrade pip
-        pip install poetry
-        poetry install
-        poetry shell
+        pip install flake8 black pytest mypy
     - name: Lint with flake8
       run: |
         flake8 .

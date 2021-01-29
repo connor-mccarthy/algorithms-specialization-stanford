@@ -46,4 +46,18 @@ Claim: merge sort never requires more than `6n * log2(n) + 6n` operations to sor
 
 This is faster than other simpler sorting methods which are quadratic in time, or a constant times `n^2`. Merge sort needs at most a constant times `n * log(n)` --> big win.
 
-One way to think about algorithms --> `log2(n)` would be the same as putting `n` into a calculator and counting the number of times you have to divide by `2` before the result is `<1`
+One way to think about logs --> `log2(n)` would be the same as putting `n` into a calculator and counting the number of times you have to divide by `2` before the result is `<1`
+
+## Three biases as guiding principles for performance analysis  
+1. Use worst cast analysis --> make no domain assumptions, probability of different inputs, etc
+2. Not going to focus on constants and lower order terms
+3. Going to focus on rate of growth as n gets very large(asymptotic analysis)
+
+Putting the three together...
+> Fast algorithms --> an algorithm with a worst-case run time that grows slowly with input size
+
+This definition is a sweet spot for analysis:
+* Not keeping track of everything --> it's mathematically tractible to think about algorithms this way
+* We still maintain some predictive power over how long algorithms take
+
+> Holy grail: linear run time (algorithm with a run-time that grows linearly with the input)

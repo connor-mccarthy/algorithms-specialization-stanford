@@ -6,7 +6,7 @@ from merge_sort import merge_sort
 @pytest.mark.parametrize(
     "unsorted",
     [
-        ([12, 15, 23, 4, 6, 10, 35, 28]),  # even number of elemebts
+        ([12, 15, 23, 4, 6, 10, 35, 28]),  # even number of elements
         ([]),  # empty list
         ([4, 6, 10, 12, 15, 23, 28, 35]),  # already sorted array
         ([12, 15, 23, 4, 6, 10, 35]),  # odd length array

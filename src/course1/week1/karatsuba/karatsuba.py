@@ -1,14 +1,6 @@
 from typing import Tuple
 
 
-def int_length(integer: int) -> int:
-    return len(str(integer))
-
-
-def split_int(integer: int, idx: int) -> Tuple[int, int]:
-    return integer // 10 ** (idx), integer % 10 ** (idx)
-
-
 def karatsuba(int1: int, int2: int) -> int:
     if (int_length(int1) == 1) or (int_length(int2) == 1):
         return int1 * int2
@@ -27,3 +19,11 @@ def karatsuba(int1: int, int2: int) -> int:
     return (
         ((10 ** (2 * split_idx)) * ac) + ((10 ** (split_idx)) * ad_plus_bc) + bd
     )  # doesn't need to use karatsuba because will only improve lower order terms
+
+
+def int_length(integer: int) -> int:
+    return len(str(integer))
+
+
+def split_int(integer: int, idx: int) -> Tuple[int, int]:
+    return integer // 10 ** (idx), integer % 10 ** (idx)

@@ -1,9 +1,15 @@
 from typing import List, Tuple
 
 
-def split_array(array: List[int]) -> Tuple[List[int], List[int]]:
-    split_idx = len(array) // 2
-    return array[:split_idx], array[split_idx:]
+def merge_sort(array: List[int]) -> List[int]:
+    """O(n*logn)"""
+    if len(array) in [0, 1]:  # base case
+        return array
+
+    a, b = split_array(array)
+    a_sorted = merge_sort(a)
+    b_sorted = merge_sort(b)
+    return merge(a_sorted, b_sorted)
 
 
 def merge(a: List[int], b: List[int]) -> List[int]:
@@ -29,11 +35,6 @@ def merge(a: List[int], b: List[int]) -> List[int]:
     return output
 
 
-def merge_sort(array: List[int]) -> List[int]:
-    if len(array) in [0, 1]:  # base case
-        return array
-
-    a, b = split_array(array)
-    a_sorted = merge_sort(a)
-    b_sorted = merge_sort(b)
-    return merge(a_sorted, b_sorted)
+def split_array(array: List[int]) -> Tuple[List[int], List[int]]:
+    split_idx = len(array) // 2
+    return array[:split_idx], array[split_idx:]

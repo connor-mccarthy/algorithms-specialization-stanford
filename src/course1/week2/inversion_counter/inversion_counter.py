@@ -11,14 +11,14 @@ def brute_force(array: List[int]) -> int:
     return inversion_count
 
 
-def sort_and_count(array: List[int]) -> Tuple[List[int], int]:
+def inversion_counter(array: List[int]) -> Tuple[List[int], int]:
     """O(n*logn)"""
     if len(array) in [0, 1]:
         return array, 0
 
     left, right = split_array(array)
-    left_sorted, left_inversions = sort_and_count(left)
-    right_sorted, right_inversions = sort_and_count(right)
+    left_sorted, left_inversions = inversion_counter(left)
+    right_sorted, right_inversions = inversion_counter(right)
     sorted_array, split_inversions = merge_and_count_split_inv(
         left_sorted, right_sorted
     )

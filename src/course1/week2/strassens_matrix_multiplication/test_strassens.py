@@ -19,8 +19,8 @@ rng = default_rng()
             np.random.randint(0, 1000, size=(4, 4)),
         ),
         (
-            np.random.randint(0, 1000, size=(50, 50)),
-            np.random.randint(0, 1000, size=(50, 50)),
+            np.random.randint(0, 1000, size=(16, 16)),
+            np.random.randint(0, 1000, size=(16, 16)),
         ),
     ],
 )

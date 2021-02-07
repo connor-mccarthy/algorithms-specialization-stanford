@@ -3,4 +3,5 @@
 
 Code and notes for the [Algorithms Specialization](https://www.coursera.org/specializations/algorithms) course offered by Stanford University.
 
+## Some code from the course:
 ![merge](merge.svg)

@@ -23,3 +23,11 @@ repos:
       entry: mypy
       types: [python]
       stages: [commit]
+    - id: deps_to_requirements
+      language: python
+      language_version: python3.7
+      name: dephell deps convert
+      entry: dephell deps convert
+      types: [python]
+      stages: [commit]
+

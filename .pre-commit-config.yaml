@@ -27,7 +27,7 @@ repos:
       language: python
       language_version: python3.7
       name: dephell deps convert
-      entry: dephell deps convert
-      types: [python]
+      entry: bash -c 'dephell deps convert'
+      pass_filenames: false
       stages: [commit]
 

@@ -1,4 +1,4 @@
-name: Python Code Checks
+name: Python CI
 
 on: [push]
 

@@ -23,3 +23,11 @@ repos:
       entry: mypy
       types: [python]
       stages: [commit]
+    - id: deps_to_requirements
+      language: python
+      language_version: python3.7
+      name: dephell deps convert
+      entry: bash -c 'dephell deps convert'
+      pass_filenames: false
+      stages: [commit]
+

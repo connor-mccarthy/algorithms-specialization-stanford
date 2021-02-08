@@ -32,10 +32,15 @@ def partition(array: List[int], left: int, right: int) -> int:
     return i - 1
 
 
-def quicksort(array: List[int], left: int, right: int) -> Optional[List[int]]:
+def quicksort(
+    array: List[int], left: Optional[int] = None, right: Optional[int] = None
+) -> Optional[List[int]]:
     """>=Theta(n logn), <= Theta(n**2), but typically O(n logn) in practice"""
     if len(array) in [0, 1]:
         return array
+
+    left = 0 if left is None else left
+    right = len(array) if right is None else right
 
     if left < right:
         new_pivot = partition(array, left, right)

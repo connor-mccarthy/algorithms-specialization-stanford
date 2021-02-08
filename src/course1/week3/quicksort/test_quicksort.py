@@ -51,7 +51,5 @@ from quicksort import quicksort
 )
 def test_quicksort(unsorted):
     array = deepcopy(unsorted)
-    left = 0
-    right = len(array)
-    quicksort(array, left, right)
+    quicksort(array)
     assert array == sorted(unsorted)

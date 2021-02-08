@@ -1,5 +1,9 @@
 {
-    "settings": {},
+    "settings": {
+      "jupyter.searchForJupyter": false,
+      "python.venvPath": "~/.cache/pypoetry/virtualenvs",
+      "python.terminal.activateEnvInCurrentTerminal": true
+    },
     "extensions": {
       "recommendations": [
         "ms-python.python",
@@ -8,21 +12,23 @@
       ]
     },
     "folders": [
+{"name": "Root",
+"path": "."},
       {
         "name": "Course 1",
-        "path": "./course1"
+        "path": "./src/course1"
       },
       {
         "name": "Course 2",
-        "path": "./course2"
+        "path": "./src/course2"
       },
       {
         "name": "Course 3",
-        "path": "./course3"
+        "path": "./src/course3"
       },
       {
         "name": "Course 4",
-        "path": "./course4"
+        "path": "./src/course4"
       },
     ],
   }

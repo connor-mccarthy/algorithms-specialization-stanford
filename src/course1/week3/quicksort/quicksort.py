@@ -25,10 +25,6 @@ def quicksort(
         quicksort(array, split_marker + 1, right)
 
 
-def choose_pivot(array: List[int], left: int, right: int) -> int:
-    return random.randint(left, right)
-
-
 def partition(array: List[int], left: int, right: int) -> int:
     pivot_element = array[left]
     i = left + 1
@@ -40,3 +36,7 @@ def partition(array: List[int], left: int, right: int) -> int:
     array[left], array[i - 1] = array[i - 1], array[left]
 
     return i - 1
+
+
+def choose_pivot(array: List[int], left: int, right: int) -> int:
+    return random.randint(left, right)

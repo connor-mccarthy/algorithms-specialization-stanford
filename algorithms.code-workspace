@@ -31,5 +31,11 @@
         "path": "./src/course4"
       },
     ],
+    "recommendations": [
+      "ms-python.python",
+      "njqdev.vscode-python-typehint",
+      "kevinrose.vsc-python-indent",
+      "ms-python.vscode-pylance"
+    ],
   }
   

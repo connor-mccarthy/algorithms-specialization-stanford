@@ -21,7 +21,7 @@ def quicksort(
         array[left], array[pivot] = array[pivot], array[left]
         split_marker = partition(array, left, right)
 
-        quicksort(array, left, split_marker)
+        quicksort(array, left, split_marker - 1)
         quicksort(array, split_marker + 1, right)
 
 

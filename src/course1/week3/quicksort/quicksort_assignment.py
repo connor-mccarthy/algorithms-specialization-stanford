@@ -27,13 +27,13 @@ def quicksort(
     if left < right:
         pivot = choose_pivot(array, left, right)
         array[left], array[pivot] = array[pivot], array[left]
-        split_marker = partition(array, left, right)
+        previous_pivot = partition(array, left, right)
 
         global comparisons
         comparisons += len(array[left:right])
 
-        quicksort(array, choose_pivot, left, split_marker - 1)
-        quicksort(array, choose_pivot, split_marker + 1, right)
+        quicksort(array, choose_pivot, left, previous_pivot - 1)
+        quicksort(array, choose_pivot, previous_pivot + 1, right)
 
 
 def partition(array: List[int], left: int, right: int) -> int:

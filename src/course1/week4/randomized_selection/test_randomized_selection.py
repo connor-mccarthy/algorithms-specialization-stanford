@@ -8,7 +8,6 @@ from randomized_selection import randomized_selection
     "unsorted",
     [
         ([12, 15, 23, 4, 6, 10, 35, 28]),  # even number of elements
-        ([]),  # empty list
         ([4, 6, 10, 12, 15, 23, 28, 35]),  # already sorted array
         ([12, 15, 23, 4, 6, 10, 35]),  # odd length array
         ([35, 28, 23, 15, 12, 10, 6, 4]),  # descending sorted array input
@@ -47,7 +46,7 @@ from randomized_selection import randomized_selection
     ],
 )
 def test_randomized_selection(unsorted):
-    statistic = np.random.randint(0, len(unsorted) - 1)
-    expected = randomized_selection(unsorted, statistic)
-    actual = sorted(unsorted)[statistic]
+    select_i = 0 if len(unsorted) == 1 else np.random.randint(0, len(unsorted) - 1)
+    expected = randomized_selection(unsorted, select_i)
+    actual = sorted(unsorted)[select_i]
     assert actual == expected

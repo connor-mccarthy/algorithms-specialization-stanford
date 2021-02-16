@@ -31,4 +31,4 @@ to = {format = "pip", path = "requirements.txt"}
 
 [tool.pytest.ini_options]
 minversion = "6.2"
-addopts = "--cov-report term-missing --cov=src/"
+addopts = "--cov-report term-missing --cov=./"

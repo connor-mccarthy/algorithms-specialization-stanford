@@ -1,4 +1,4 @@
-name: Python Code Checks
+name: Python Workflow
 
 on: [push]
 
@@ -23,9 +23,13 @@ jobs:
     - name: Check formatting with black
       run: |
         black --check
-    - name: Test with pytest
-      run: |
-        pytest .
     - name: Check typehints with mypy
       run: |
         mypy .
+    - name: Test with pytest
+      run: |
+        pytest --cov=./
+    - name: Upload codecov
+      uses: codecov/codecov-action@v1
+      with:
+        fail_ci_if_error: true

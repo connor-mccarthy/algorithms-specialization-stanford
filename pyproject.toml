@@ -28,3 +28,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.dephell.main]
 from = {format = "poetry", path = "pyproject.toml"}
 to = {format = "pip", path = "requirements.txt"}
+
+[tool.pytest.ini_options]
+minversion = "6.2"
+addopts = "--cov-report term-missing --cov=src/"

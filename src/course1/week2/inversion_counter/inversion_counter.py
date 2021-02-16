@@ -51,7 +51,7 @@ def merge_and_count_split_inv(a: List[int], b: List[int]) -> Tuple[List[int], in
             output.append(b[j])
             j += 1
             split_inversions += len(a[i:])
-        elif a[i] == b[j]:  # handle same elements
+        elif a[i] == b[j]:  # handle same elements # pragma: no cover
             output.append(a[i])  # the first "if" will catch the corresponding b element
             i += 1
     return output, split_inversions

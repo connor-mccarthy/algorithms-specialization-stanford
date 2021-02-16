@@ -31,7 +31,7 @@ jobs:
         pytest --cov=./
     - name: Upload codecov
       uses: codecov/codecov-action@v1
-      if: secrets.CODECOV_TOKEN != null
+      if: ${{ secrets.CODECOV_TOKEN != 0 }}
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: true

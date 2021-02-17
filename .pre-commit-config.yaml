@@ -29,7 +29,7 @@ repos:
       entry: poetry export --without-hashes -f requirements.txt --output requirements.txt
       pass_filenames: false
     - id: generate_dev_requirements
-      name: generate requirements
+      name: generate development requirements
       language: python
       language_version: python3.7
       entry: poetry export --dev --without-hashes -f requirements.txt --output dev_requirements.txt

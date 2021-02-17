@@ -22,12 +22,17 @@ repos:
       name: mypy
       entry: mypy
       types: [python]
-      stages: [commit]
-    - id: deps_to_requirements
+    - id: generate_requirements
+      name: generate requirements
       language: python
       language_version: python3.7
-      name: dephell deps convert
-      entry: bash -c 'dephell deps convert'
+      entry: poetry export --without-hashes -f requirements.txt --output requirements.txt
       pass_filenames: false
-      stages: [commit]
+    - id: generate_dev_requirements
+      name: generate requirements
+      language: python
+      language_version: python3.7
+      entry: poetry export --dev --without-hashes -f requirements.txt --output dev_requirements.txt
+      pass_filenames: false
 
+  

@@ -1,5 +1,6 @@
 # Course 1: Divide and Conquer, Sorting and Searching, and Randomized Algorithms
 
+> [Course certificate](./course1_certificate.pdf)
 ## Algorithms
 * [Karatsuba multiplication](./week1/karatsuba/karatsuba.py)
 * [Merge sort](./week1/merge_sort/merge_sort.py)

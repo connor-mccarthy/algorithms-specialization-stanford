@@ -6,5 +6,5 @@
 
 Code and notes for the [Algorithms Specialization](https://www.coursera.org/specializations/algorithms) course offered by Stanford University.
 
-### It looks a lot like this
-![merge](merge.svg)
+### A portion of [MergeSort](https://en.wikipedia.org/wiki/Merge_sort):
+<img src="merge.svg" alt="mergesort_merge" width="500" height="auto">

@@ -1,4 +1,4 @@
-# Introduction Problem 5.1 You are given as input an unsorted array of n distinct numbers where n is a power of 2. Given an algorithm that identifies the second-largest number in the array, and uses t most n+log_2(n) - 2 comparisons.
+# Introduction Problem 5.1: You are given as input an unsorted array of n distinct numbers where n is a power of 2. Given an algorithm that identifies the second-largest number in the array, and uses t most n+log_2(n) - 2 comparisons.
 
 from typing import List
 

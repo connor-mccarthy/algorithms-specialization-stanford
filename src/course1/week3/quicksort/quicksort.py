@@ -2,8 +2,8 @@ from typing import List, Optional
 
 from numpy import random
 
-# i = boundary between non-pivot elements we've looked at and those we haven't
-# j = boundary between elements less than pivot and those greater than pivot
+# i -> boundary between non-pivot elements we've looked at and those we haven't
+# j -> boundary between elements less than pivot and those greater than pivot
 
 
 def quicksort(

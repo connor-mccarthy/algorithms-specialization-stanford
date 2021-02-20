@@ -18,7 +18,7 @@ def karatsuba(int1: int, int2: int) -> int:
 
     return (
         ((10 ** (2 * split_idx)) * ac) + ((10 ** (split_idx)) * ad_plus_bc) + bd
-    )  # doesn't need to use karatsuba because will only improve lower order terms
+    )  # doesn't need to use karatsuba for multiplication because doing so will only improve lower order terms
 
 
 def int_length(integer: int) -> int:

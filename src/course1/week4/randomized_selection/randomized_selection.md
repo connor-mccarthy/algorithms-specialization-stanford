@@ -4,7 +4,8 @@
 
 * Input: array A with n distinct numbers and a number i ∈ {1, 2, ..., n}
 * Output: ith order statistic (i.e., the ith smalleset element of the input array)
-* The fact that the numbers are distinct is not a very large assumption
+
+The fact that the numbers are distinct is not a very large assumption
 
 ## Sorting as a solution
 
@@ -26,7 +27,7 @@ Randomized selection for array A of length n for statistic i (j below is pivot e
 5) if j > i, return randomized_selection(first part of A, j -1, i)
 6) if j < i, return randomized_selection(second part of A, n-j, i-j)
 
-## Running time
+## Runtime
 
 * Depends on which pivots get chosen --> could be as bad as O(n**2)
 * Key: find pivots giving "balanced" split

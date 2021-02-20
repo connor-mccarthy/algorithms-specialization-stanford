@@ -1,20 +1,8 @@
-import os
 import random
 from copy import deepcopy
 from typing import Dict, List
 
 GraphAdjacencyLists = Dict[int, List[int]]
-
-
-def get_data() -> GraphAdjacencyLists:
-    directory = os.path.dirname(os.path.realpath(__file__))
-    filename = "randomized_contraction_assignment_data.txt"
-    filepath = os.path.join(directory, filename)
-    with open(filepath, "r") as f:
-        lines = f.readlines()
-    nested_lists = [line.strip().split("\t") for line in lines]
-    nested_lists = [[int(num) for num in row] for row in nested_lists]
-    return {row[0]: row[1:] for row in nested_lists}
 
 
 def get_min_cut(graph: GraphAdjacencyLists, num_iters: int) -> int:
@@ -49,8 +37,3 @@ def contract(graph: GraphAdjacencyLists, v: int, w: int) -> GraphAdjacencyLists:
 
     del graph[w]
     return graph
-
-
-if __name__ == "__main__":  # pragma: no cover
-    graph = get_data()
-    print(get_min_cut(graph, 100))

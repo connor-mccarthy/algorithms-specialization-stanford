@@ -1,5 +1,4 @@
-# Week 2: Divide and conquer
-> Divide-and-conquer basics; the master method for analyzing divide and conquer algorithms.
+# Week 2: Divide & Conquer Algorithms and the Master Method
 
 Algorithms:
 * [Inversion counter](./inversion_counter/inversion_counter.py)

@@ -1,5 +1,4 @@
-# Week 4: Randomized selection and graphs
-> Linear-time selection; graphs, cuts, and the contraction algorithm.
+# Week 4: Linear-time Selection, Graphs, and the Contraction Algorithm
 
 ## Algorithms
 * [Randomized selection](./randomized_selection/randomized_selection.py)

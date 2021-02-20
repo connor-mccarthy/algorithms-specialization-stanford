@@ -1,5 +1,4 @@
-# Week 1: Introduction
-> Introduction; "big-oh" notation and asymptotic analysis.
+# Week 1: Introduction and Asymptotic Analysis
 
 ## Algorithms
 * [Karatsuba multiplication](./karatsuba/karatsuba.py)

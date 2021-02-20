@@ -1,5 +1,4 @@
-# Week 3: QuickSort
-> The QuickSort algorithm and its analysis; probability review.
+# Week 3: QuickSort Algorithm, QuickSort Analysis, and Probability review
 
 Algorithms:
 * [Quicksort](./quicksort/quicksort.py)

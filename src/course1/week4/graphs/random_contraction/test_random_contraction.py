@@ -1,6 +1,7 @@
 from copy import deepcopy
 
-from random_contraction import get_data, get_min_cut
+from random_contraction import get_min_cut
+from random_contraction_assignment import get_data
 
 
 def test_randomized_contract():

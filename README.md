@@ -6,5 +6,5 @@
 
 Code and notes for the [Algorithms Specialization](https://www.coursera.org/specializations/algorithms) course offered by Stanford University.
 
-## Some code from the course:
+### It looks a lot like this
 ![merge](merge.svg)

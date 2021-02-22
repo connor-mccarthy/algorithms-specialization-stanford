@@ -1,4 +1,4 @@
-from .bfs import bfs
+from bfs import bfs
 
 
 def test_bfs():

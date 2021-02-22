@@ -1,6 +1,6 @@
 import pytest
 
-from .shortest_path import shortest_path
+from shortest_path import shortest_path
 
 
 @pytest.mark.parametrize(

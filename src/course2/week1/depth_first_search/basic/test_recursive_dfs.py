@@ -1,4 +1,4 @@
-from recursive_dfs import recursive_dfs
+from recursive_dfs import dfs
 
 
 def test_recursive_dfs():
@@ -6,6 +6,6 @@ def test_recursive_dfs():
     graph_tracker = {
         node: {"nodes": graph[node], "is_explored": False} for node in graph
     }
-    raw_actual = recursive_dfs(graph_tracker)
+    raw_actual = dfs(graph_tracker)
     is_explored_list = [v["is_explored"] for _, v in raw_actual.items()]
     assert all(is_explored_list)

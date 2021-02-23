@@ -29,5 +29,3 @@ def shortest_path(graph: Graph, target_node: int) -> int:
                     graph_tracker[current_node]["distance"] + 1
                 )
                 queue.append(adjacent_node)
-
-    raise Exception(f"No path found to {target_node}")

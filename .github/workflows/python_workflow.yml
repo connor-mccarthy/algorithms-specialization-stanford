@@ -13,6 +13,11 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.7.9
+    - name: Python environment cache set up
+      uses: actions/cache@v2
+      with:
+        path: ${{ env.pythonLocation }}
+        key: ${{ env.pythonLocation }}-${{ hashFiles('poetry.lock') }}-${{ hashFiles('dev_requirements.txt') }}
     - name: Install dependencies
       run: |
         pip install --upgrade pip
@@ -22,7 +27,7 @@ jobs:
         flake8 .
     - name: Check formatting with black
       run: |
-        black --check
+        black --check .
     - name: Check typehints with mypy
       run: |
         mypy .

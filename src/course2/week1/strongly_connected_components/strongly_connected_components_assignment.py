@@ -7,10 +7,12 @@ from typing import Dict, List
 
 from kosaraju import Kosaraju
 
-# Increase recursion limit and stack size
+# tncrease recursion limit and stack size
 sys.setrecursionlimit(2 ** 20)
 hardlimit = resource.getrlimit(resource.RLIMIT_STACK)[1]
 resource.setrlimit(resource.RLIMIT_STACK, (hardlimit, hardlimit))
+
+# add segmentation fault tracing
 faulthandler.enable()
 
 
@@ -26,7 +28,6 @@ def get_data() -> List[List[int]]:
 
 def get_largest_component_sizes(sccs: Dict[int, List[int]], components: int) -> str:
     sorted_sccs = sorted(sccs.items(), key=lambda x: len(x[1]), reverse=True)
-    print(sorted_sccs)
     components = 5
     output = ""
     for i in range(components):

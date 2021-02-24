@@ -5,7 +5,7 @@ TrackedGraph = Dict[int, Dict[str, Any]]
 
 
 class TopologicalSort:
-    def __init__(self, graph: Graph):
+    def __init__(self, graph: Graph) -> None:
         self.graph = graph
         self.graph_tracker: TrackedGraph = {
             node: {"nodes": graph[node], "is_explored": False, "topo_id": None}

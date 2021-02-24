@@ -1,4 +1,4 @@
-from kosaraju2 import Kosaraju
+from kosaraju import Kosaraju
 
 
 def test_kosaru():
@@ -16,6 +16,7 @@ def test_kosaru():
     kosaraju = Kosaraju(graph)
     actual = kosaraju.run()
     expected = {1: [1, 4, 7], 2: [2, 5, 8], 3: [0, 3, 6]}
+    print(actual)
     for scc_id, nodes in actual.items():
         for node in nodes:
             assert node in expected[scc_id]

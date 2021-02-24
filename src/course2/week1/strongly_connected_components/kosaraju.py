@@ -6,12 +6,11 @@ TrackedGraph = Dict[int, Dict[str, Any]]
 
 class Kosaraju:
     def __init__(self, graph: Graph) -> None:
-        self.g = graph
-        self.grev = self.reverse_graph(self.g)
+        self.graph = self.reverse_graph(graph)
         self.t = 0
         self.start_node: Optional[int] = None
         self.explored_nodes: List[int] = []
-        self.finishing_times: Dict[int, int] = {}
+        self.finishing_times: List[int] = []
         self.sccs: Dict[int, int] = {}
 
     def reverse_graph(self, graph: Graph) -> Graph:
@@ -22,29 +21,24 @@ class Kosaraju:
         return reversed_graph
 
     def first_pass(self) -> List[int]:
-        self.current_label = len(self.grev)
-        for vertex in self.grev:
+        self.current_label = len(self.graph)
+        for vertex in self.graph:
             if vertex not in self.explored_nodes:
                 self.start_node = vertex
                 self.dfs(vertex)
-        self.grev = {
-            k: v
-            for k, v in sorted(
-                self.grev.items(), key=lambda x: self.finishing_times[x[0]]
-            )
-        }
+        self.finishing_times.reverse()
 
     def dfs(self, start_node: int = 0) -> None:
         self.explored_nodes.append(start_node)
-        for adjacent_node in self.grev[start_node]:
+        for adjacent_node in self.graph[start_node]:
             if adjacent_node not in self.explored_nodes:
                 self.dfs(adjacent_node)
-        self.finishing_times[start_node] = self.current_label
+        self.finishing_times.append(start_node)
         self.current_label -= 1
 
     def second_pass(self) -> None:
         self.num_scc = 0
-        for node in self.grev:
+        for node in self.finishing_times:
             if node not in self.explored_nodes:
                 self.num_scc += 1
                 self.dfs_scc(node)
@@ -52,7 +46,7 @@ class Kosaraju:
     def dfs_scc(self, start_node: int):
         self.explored_nodes.append(start_node)
         self.sccs[start_node] = self.num_scc
-        for adjacent_node in self.reverse_graph(self.grev)[start_node]:
+        for adjacent_node in self.graph[start_node]:
             if adjacent_node not in self.explored_nodes:
                 self.dfs_scc(adjacent_node)
 
@@ -70,6 +64,7 @@ class Kosaraju:
         self.t = 0
         self.start_node = None
         self.explored_nodes = []
+        self.graph = self.reverse_graph(self.graph)
         self.second_pass()
         return self.aggregate_scc()
 

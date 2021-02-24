@@ -1,9 +1,17 @@
+import faulthandler
 import os
+import resource
 import sys
 import threading
 from typing import Dict, List
 
 from kosaraju import Kosaraju
+
+# Increase recursion limit and stack size
+sys.setrecursionlimit(2 ** 20)
+hardlimit = resource.getrlimit(resource.RLIMIT_STACK)[1]
+resource.setrlimit(resource.RLIMIT_STACK, (hardlimit, hardlimit))
+faulthandler.enable()
 
 
 def get_data() -> List[List[int]]:
@@ -17,7 +25,8 @@ def get_data() -> List[List[int]]:
 
 
 def get_largest_component_sizes(sccs: Dict[int, List[int]], components: int) -> str:
-    sorted_sccs = sorted(sccs.items(), key=lambda x: len(x[1]))
+    sorted_sccs = sorted(sccs.items(), key=lambda x: len(x[1]), reverse=True)
+    print(sorted_sccs)
     components = 5
     output = ""
     for i in range(components):
@@ -45,6 +54,31 @@ def get_small_data():
         [9, 3],
     ]
     return [[node - 1 for node in line] for line in lines]
+
+
+def also_get_small_data():
+    return [
+        [0, 1],
+        [1, 2],
+        [1, 3],
+        [1, 4],
+        [2, 5],
+        [3, 4],
+        [3, 6],
+        [4, 1],
+        [4, 5],
+        [4, 6],
+        [5, 2],
+        [5, 7],
+        [6, 7],
+        [6, 9],
+        [7, 6],
+        [8, 6],
+        [9, 8],
+        [9, 10],
+        [10, 11],
+        [11, 9],
+    ]
 
 
 def main() -> str:

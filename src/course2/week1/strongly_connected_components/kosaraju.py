@@ -39,7 +39,7 @@ class Kosaraju:
                 self.start_node = vertex
                 self.dfs(vertex)
         sorted_tuples = sorted(self.grev.items(), key=lambda x: x[1]["finish_time"])
-        return [node_info[0] for node_info in sorted_tuples]
+        self.grev = {node: info for node, info in sorted_tuples}
 
     def dfs(self, start_node: int = 0) -> None:
         self.grev[start_node]["is_explored"] = True
@@ -50,9 +50,9 @@ class Kosaraju:
         self.grev[start_node]["finish_time"] = self.t
         self.t -= 1
 
-    def second_pass(self, order: List[int]) -> SCCDict:
+    def second_pass(self) -> SCCDict:
         self.num_scc = 0
-        for node in order:
+        for node in self.grev:
             if not self.g[node]["is_explored"]:
                 self.num_scc += 1
                 self.dfs_scc(node)
@@ -76,5 +76,5 @@ class Kosaraju:
         return scc_dict
 
     def run(self) -> Dict[int, List[int]]:
-        finish_time_order = self.first_pass()
-        return self.second_pass(finish_time_order)
+        self.first_pass()
+        return self.second_pass()

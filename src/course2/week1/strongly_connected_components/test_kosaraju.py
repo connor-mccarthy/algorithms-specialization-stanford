@@ -1,4 +1,4 @@
-from kosaraju import Kosaraju
+from kosaraju2 import Kosaraju
 
 
 def test_kosaru():

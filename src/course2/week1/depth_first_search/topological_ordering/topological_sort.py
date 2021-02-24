@@ -13,10 +13,11 @@ class TopologicalSort:
         }
         self.current_label = len(self.graph)
 
-    def sort(self) -> None:
+    def sort(self) -> Dict[int, int]:
         for vertex in self.graph_tracker:
             if not self.graph_tracker[vertex]["is_explored"]:
                 self.dfs(vertex)
+        return {k: v["topo_id"] for k, v in self.graph_tracker.items()}
 
     def dfs(self, start_node: int = 0) -> None:
         self.graph_tracker[start_node]["is_explored"] = True

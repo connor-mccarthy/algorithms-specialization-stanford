@@ -1,15 +1,9 @@
 import os
 import sys
+import threading
 from typing import Dict, List
 
 from kosaraju import Kosaraju
-
-sys.settrace
-sys.setrecursionlimit(800000)
-
-
-def get_graph_shape(num_nodes):
-    return [[] for _ in range(num_nodes)]
 
 
 def get_data() -> List[List[int]]:
@@ -36,7 +30,7 @@ def get_largest_component_sizes(sccs: Dict[int, List[int]], components: int) -> 
     return output
 
 
-def main() -> str:
+def get_small_data():
     lines = [
         [1, 4],
         [2, 8],
@@ -50,13 +44,23 @@ def main() -> str:
         [9, 7],
         [9, 3],
     ]
-    lines = [[node - 1 for node in line] for line in lines]
-    # lines = get_data()
+    return [[node - 1 for node in line] for line in lines]
+
+
+def main() -> str:
+    lines = get_data()
     kosaraju = Kosaraju(lines)
     sccs = kosaraju.run()
     components = 5
     return get_largest_component_sizes(sccs, components)
 
+
+sys.setrecursionlimit(2097152)  # adjust numbers
+threading.stack_size(134217728)  # for your needs
+
+main_thread = threading.Thread(target=main)
+main_thread.start()
+main_thread.join()
 
 if __name__ == "__main__":  # pragma: no cover
     print(main())

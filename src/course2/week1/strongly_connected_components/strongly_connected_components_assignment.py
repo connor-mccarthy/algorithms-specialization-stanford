@@ -1,8 +1,15 @@
-import itertools
 import os
-from typing import List
+import sys
+from typing import Dict, List
 
-from kosaraju import Graph, Kosaraju
+from kosaraju import Kosaraju
+
+sys.settrace
+sys.setrecursionlimit(800000)
+
+
+def get_graph_shape(num_nodes):
+    return [[] for _ in range(num_nodes)]
 
 
 def get_data() -> List[List[int]]:
@@ -12,37 +19,44 @@ def get_data() -> List[List[int]]:
     with open(filepath, "r") as f:
         lines = f.readlines()
     string_lines = [line.strip().split(" ") for line in lines]
-    return [[int(num) for num in line] for line in string_lines]
+    return [[int(num) - 1 for num in line] for line in string_lines]
 
 
-def convert_lines_to_adjacency_list(lines: List[List[int]]) -> Graph:
-    adjacency_list: Graph = {}
-    for k, g in itertools.groupby(lines, key=lambda x: x[0]):
-        edges = list(g)
-        adjacent_nodes = [edge[1] for edge in edges]
-        adjacency_list[k] = adjacent_nodes
-
-    # we need to fill in the missing indices
-    for i in range(list(adjacency_list.keys())[-1]):
-        if i not in adjacency_list:
-            adjacency_list[i] = []
-
-    return adjacency_list
-
-
-def main() -> None:
-    import sys
-
-    sys.setrecursionlimit(100000)
-    lines = get_data()
-    graph = convert_lines_to_adjacency_list(lines)
-    kosaraju = Kosaraju(graph)
-    sccs = kosaraju.run()
+def get_largest_component_sizes(sccs: Dict[int, List[int]], components: int) -> str:
     sorted_sccs = sorted(sccs.items(), key=lambda x: len(x[1]))
-    no_scss_required = 5
-    for i in range(no_scss_required):
-        print(sorted_sccs[i][1])
+    components = 5
+    output = ""
+    for i in range(components):
+        try:
+            output += str(len(sorted_sccs[i][1]))
+        except IndexError:
+            output += str(0)
+        if i != components - 1:
+            output += ","
+    return output
+
+
+def main() -> str:
+    lines = [
+        [1, 4],
+        [2, 8],
+        [3, 6],
+        [4, 7],
+        [5, 2],
+        [6, 9],
+        [7, 1],
+        [8, 5],
+        [8, 6],
+        [9, 7],
+        [9, 3],
+    ]
+    lines = [[node - 1 for node in line] for line in lines]
+    # lines = get_data()
+    kosaraju = Kosaraju(lines)
+    sccs = kosaraju.run()
+    components = 5
+    return get_largest_component_sizes(sccs, components)
 
 
 if __name__ == "__main__":  # pragma: no cover
-    main()
+    print(main())

@@ -1,4 +1,3 @@
-import faulthandler
 import os
 import resource
 import sys
@@ -10,9 +9,6 @@ from kosaraju import Kosaraju
 sys.setrecursionlimit(2 ** 20)
 hardlimit = resource.getrlimit(resource.RLIMIT_STACK)[1]
 resource.setrlimit(resource.RLIMIT_STACK, (hardlimit, hardlimit))
-
-# add segmentation fault tracing
-faulthandler.enable()
 
 
 def get_data() -> List[List[int]]:

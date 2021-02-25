@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "algorithms-specialization-stanford"
-version = "0.0.1"
+version = "0.0.0"
 description = "Stanford's Algorithms Specialization courses."
 authors = ["Connor McCarthy <mccarthy.connor.james@gmail.com>"]
 packages = [

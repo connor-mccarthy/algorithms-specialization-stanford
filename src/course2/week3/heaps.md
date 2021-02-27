@@ -52,3 +52,22 @@ Key idea: maintain invariant that approx. i/2 smallest (largest) elementsin H_lo
 Dijkstra's shortest-path algorithm
 * Naive implementation -> run time = O(n*m) (n = number of loop iterations and m = work per iteration)
 * With heaps -> runtime = O(m*logn)
+
+## Implementation summary
+Two views of a heap:
+* as a tree
+* as an array
+
+Conceptually: think of a heap as a tree
+* rooted, binary, as complete as possible
+
+Heap property: at everynode x, key[x] <= all keys of x's children -> i.e. smallest on top (root) of tree
+
+The same objects can be arranged multiple ways, and it would still be a heap
+![heap sketch](./heap_sketch.png)
+
+We _think_ of it as a heap, but we implement it as an array:
+![heap array implementation](./heap_array_implementation.png)
+
+Note: parent(i) = {i/2 if even; ⌊i/2⌋ (floor division) if i odd}
+

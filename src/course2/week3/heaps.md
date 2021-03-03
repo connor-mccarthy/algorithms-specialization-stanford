@@ -16,13 +16,13 @@ Two main operations (where n is number of objects in heap):
 Other operations:
 * Heapify: n batched inserts
     * Running time: O(n) time
-* Delete: Delete an arbiterary element fmor the middle of a heap
+* Delete: Delete an arbitrary element from the middle of a heap
     * Running time: O(logn) time
 
 ## Application: sorting
 __Canonical use of a heap:__ fast way to do repeates minimum computations
 
-__Example:__ Selection sort --> n number of o(n)) linear scans --> O(n**2) runtime on array of length n
+__Example:__ Selection sort --> n number of o(n) linear scans --> O(n**2) runtime on array of length n
 
 __Heapsort:__
 1. Insert all elements into heap, then extract them all one by one
@@ -48,7 +48,7 @@ Solution: use two heaps:
 
 Key idea: maintain invariant that approx. i/2 smallest (largest) elementsin H_low (H_high)
 
-## Application: sppeding up dijkstra
+## Application: speeding up dijkstra
 Dijkstra's shortest-path algorithm
 * Naive implementation -> run time = O(n*m) (n = number of loop iterations and m = work per iteration)
 * With heaps -> runtime = O(m*logn)

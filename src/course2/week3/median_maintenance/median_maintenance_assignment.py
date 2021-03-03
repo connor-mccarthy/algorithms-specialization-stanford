@@ -1,9 +1,9 @@
 import heapq
 import os
-from typing import List, Tuple
+from typing import List
 
 
-def get_data() -> List[List[int]]:
+def get_data() -> List[int]:
     directory = os.path.dirname(os.path.realpath(__file__))
     filename = "median_maintenance_assignment_data.txt"
     filepath = os.path.join(directory, filename)
@@ -17,7 +17,6 @@ class MedianMaintainer:
     def __init__(self) -> None:
         self.hlow: List[int] = []
         self.hhigh: List[int] = []
-        self.all_items = []  # delete me!
 
     @property
     def is_empty(self) -> bool:
@@ -33,7 +32,7 @@ class MedianMaintainer:
 
     def rebalance(self) -> None:
         if len(self.hlow) > len(self.hhigh) + 1:
-            max_e_from_min_hlow = heapq._heappop_max(self.hlow)
+            max_e_from_min_hlow = heapq._heappop_max(self.hlow)  # type: ignore
             heapq.heappush(self.hhigh, max_e_from_min_hlow)
         elif len(self.hhigh) > len(self.hlow) + 1:
             min_e_from_hhigh = heapq.heappop(self.hhigh)
@@ -47,10 +46,9 @@ class MedianMaintainer:
         else:
             heapq.heappush(self.hhigh, element)
         self.rebalance()
-        self.all_items.append(element)  # delete me
 
     @property
-    def median(self) -> Tuple[int]:
+    def median(self) -> int:
         odd_no_elements = len(self.hlow + self.hhigh) % 2 != 0
         if odd_no_elements:
             if len(self.hlow) > len(self.hhigh):
@@ -59,26 +57,3 @@ class MedianMaintainer:
                 return self.hhigh_min
         else:
             return self.hlow_max
-
-    @property
-    def median_checker(self):
-        sorted_list = sorted(self.all_items)
-        length = len(sorted_list)
-        if length % 2 == 0:
-            return sorted_list[(length // 2) - 1]
-        else:
-            return sorted_list[((length + 1) // 2) - 1]
-
-
-if __name__ == "__main__":
-    data = get_data()
-
-    mm = MedianMaintainer()
-
-    total = 0
-    for element in data:
-        mm.insert(element)
-        total += mm.median
-
-    final_answer = total % 10_000
-    print(final_answer)

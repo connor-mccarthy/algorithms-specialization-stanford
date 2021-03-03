@@ -10,7 +10,7 @@ WeightedGraph = List[EdgeType]
 Edge: EdgeType = namedtuple("Edge", ["weight", "start", "end"])
 
 
-def dijkstra(graph: WeightedGraph, start_node: int):
+def dijkstra(graph: WeightedGraph, start_node: int) -> Dict[int, int]:
     graph = [Edge(*edge_data) for edge_data in graph]
     visited = {start_node}
     distances = {start_node: 0}
@@ -31,27 +31,5 @@ def dijkstra(graph: WeightedGraph, start_node: int):
     return distances
 
 
-def dijkstras_greedy_criterion(edge: Edge, distances: Dict[int, int]):
+def dijkstras_greedy_criterion(edge: Edge, distances: Dict[int, int]) -> int:
     return distances[edge.start] + edge.weight
-
-
-if __name__ == "__main__":
-    graph = [
-        (1, 1, 2),
-        (2, 1, 8),
-        (1, 2, 1),
-        (1, 2, 3),
-        (1, 3, 2),
-        (1, 3, 4),
-        (1, 4, 3),
-        (1, 4, 5),
-        (1, 5, 4),
-        (1, 5, 6),
-        (1, 6, 5),
-        (1, 6, 7),
-        (1, 7, 6),
-        (1, 7, 8),
-        (1, 8, 7),
-        (2, 8, 1),
-    ]
-    print(dijkstra(graph, 1))

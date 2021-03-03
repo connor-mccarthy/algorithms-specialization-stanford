@@ -1,13 +1,13 @@
 from collections import namedtuple
 from typing import Dict, List, Tuple
 
-Weight = int
 StartNode = int
 EndNode = int
-EdgeType = Tuple[Weight, StartNode, EndNode]
+Weight = int
+EdgeType = Tuple[StartNode, EndNode, Weight]
 WeightedGraph = List[EdgeType]
 
-Edge: EdgeType = namedtuple("Edge", ["weight", "start", "end"])
+Edge: EdgeType = namedtuple("Edge", ["start", "end", "weight"])
 
 
 def dijkstra(graph: WeightedGraph, start_node: int) -> Dict[int, int]:

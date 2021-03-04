@@ -47,7 +47,7 @@ Reason for using a heat: perform insert, extract-min in O(logn) time
 
 __Heaps:__
 * Conceptually, a perfectly balanced binary tree --> height ~= log_2(n)
-* Heap property: at ever node, key <= childrens keys
+* Heap property: at every node, key <= childrens keys
 * Can extract-min by swapping up last leaf and bubbling down
 * Insert via bubbling up
 * Also: will need the ability to delete from middle of heap (and bubble up or down as needed)

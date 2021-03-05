@@ -34,3 +34,28 @@ __Note__
 No false negatives --> if x was inserted, lookup(x) is guaranteed to succeed
 
 Some false positives --> it's possible that you will get false positive (lookup(x) succeeds when it says it should not) if all k h_i(x)'s already set to 1 by other insertions
+
+## Heuristic analysis
+There is a tradeoff between space and error (false positive) probability.
+
+If we understand the frontier of this tradeoff, we can find the sweet spot.
+
+__Assume__: [not justified] all h_i(x)'s are uniformly random and independent across different i's and x's.
+
+__Setup__: n bits, insert data set S into bloom filter.
+
+__Note__: for each bit of A, the probability it's been set to I is after inserting all off s: P(1 - (1 - (1/n))**k|s|)
+
+Working up to it:
+* Because of the way a bloom filter works, we want to start by determining the probability that a given bit remains zero after all hash function "darts" are thrown, flipping buckets to 1
+* P(a bucket is hit by one of the hash functions for one object insert) = P(1/n)
+* P(a bucket is not hit by one of the hash functions for one object insert) = P(1 - (1/n))
+* P(a bucket is not hit by all of the hash functions for *one* object insert) = P(1 - (1/n))**k
+* P(a bucket is not hit by all of the hash functions for *all* object inserts) = P(1 - (1/n))**k|s|
+* P(a bucket is hit by at least one of the hash functions for *all* object inserts) = P(1 - (1 - (1/n))**k|s|)
+
+Under assumption, for x ∉ S, false positive probability is <= (1-e**(-k/b))**k, where b is the # of bits per object
+
+__How to set k?__: for fixed b, set k to minimize error probability. This ends up being about k~= (ln2)*b.
+
+Plugging that value back in, we get the tradeoff rate between size and error rate: (1/2)**((ln2)b) (error is exponentially small in b)

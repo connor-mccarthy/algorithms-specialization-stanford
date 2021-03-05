@@ -24,11 +24,11 @@ def sorted_array(array: Array, t: int) -> Result:
 
 
 def create_hash_table_from_array(array: Array) -> List[bool]:
-    min_key = 10000
+    min_key = -10000
     max_key = 10000
-    hash_table = [False for _ in range(-min_key, max_key + 1)]
+    hash_table = [False for _ in range(min_key, max_key + 1)]
     for e in array:
-        hash_table[e + min_key] = True
+        hash_table[e + (-min_key)] = True
     return hash_table
 
 

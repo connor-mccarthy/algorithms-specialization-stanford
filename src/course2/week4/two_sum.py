@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 Array = List[int]
 Result = List[Tuple[int, int]]
@@ -23,15 +23,14 @@ def sorted_array(array: Array, t: int) -> Result:
     return result
 
 
-def create_hash_table_from_array(array: Array) -> List[bool]:
-    min_key = -10000
-    max_key = 10000
-    hash_table = [False for _ in range(min_key, max_key + 1)]
+def create_hash_table_from_array(array: Array) -> Dict[int, bool]:
+    # python dictionaries are stored by the hash value of the key for fast lookup
+    hash_table: Dict[int, bool] = {}
     for e in array:
-        hash_table[e + (-min_key)] = True
+        hash_table[e] = True
     return hash_table
 
 
 def hash_table_2_sum(array: Array, t: int) -> Result:
     hash_table = create_hash_table_from_array(array)
-    return [(e, t - e) for e in array if hash_table[t - e]]
+    return [(e, t - e) for e in array if hash_table.get(t - e, False) and t - e != e]

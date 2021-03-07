@@ -11,23 +11,27 @@ Code and notes for the [Algorithms Specialization](https://www.coursera.org/spec
 
 ## Algorithms
 ### Course 1
-* [Karatsuba multiplication](./course1/week1/karatsuba/karatsuba.py)
-* [Merge sort](./course1/week1/merge_sort/merge_sort.py)
-* [Inversion counter](./course1/week2/inversion_counter/inversion_counter.py)
-* [Strassens matrix multiplication](./course1/week2/strassens_matrix_multiplication/strassens.py)
-* [Quicksort](./course1/week3/quicksort/quicksort.py)
-* [Randomized selection](./course1/week4/randomized_selection/randomized_selection.py)
-* [Random contraction](./course1/week4/graphs/random_contraction/random_contraction.py)
+* [Karatsuba multiplication](./src/course1/week1/karatsuba/karatsuba.py)
+* [Merge sort](./src/course1/week1/merge_sort/merge_sort.py)
+* [Inversion counter](./src/course1/week2/inversion_counter/inversion_counter.py)
+* [Strassens matrix multiplication](./src/course1/week2/strassens_matrix_multiplication/strassens.py)
+* [Quicksort](./src/course1/week3/quicksort/quicksort.py)
+* [Randomized selection](./src/course1/week4/randomized_selection/randomized_selection.py)
+* [Random contraction](./src/course1/week4/graphs/random_contraction/random_contraction.py)
 
 ### Course 2
-* [Breadth first graph search (BFS)](./course2/week1/breadth_first_search/basic/bfs.py)
-* [BFS for computing shortest path](./course2/week1/breadth_first_search/shortest_path/shortest_path.py)
-* [Depth first graph search (DFS)](./course2/week1/depth_first_search/basic/dfs.py)
-* [DFS for computing topological ordering of DAG](./course2/week1/depth_first_search/topological_ordering/topological_ordering.py)
-* [Kosaraju's two-pass for computing strongly connected graph components](./course2/week1/strongly_connected_components/kosaraju.py)
-* [Dijkstra's shortest path](./course2/week2/dijkstra.py)
-* [Median maintenance via heaps](./course2/week3/median_maintenance_assignment/median_maintenance.py)
-* [TwoSum via hash table](./course2/week4/two_sum.py)
+* [Breadth first graph search (BFS)](./src/course2/week1/breadth_first_search/basic/bfs.py)
+* [BFS for computing shortest path](./src/course2/week1/breadth_first_search/shortest_path/shortest_path.py)
+* [Depth first graph search (DFS)](./src/course2/week1/depth_first_search/basic/dfs.py)
+* [DFS for computing topological ordering of DAG](./src/course2/week1/depth_first_search/topological_ordering/topological_ordering.py)
+* [Kosaraju's two-pass for computing strongly connected graph components](./src/course2/week1/strongly_connected_components/kosaraju.py)
+* [Dijkstra's shortest path](./src/course2/week2/dijkstra.py)
+* [Median maintenance via heaps](./src/course2/week3/median_maintenance_assignment/median_maintenance_assignment.py)
+* [TwoSum via hash table](./src/course2/week4/two_sum.py)
 
 ### Course 3
 In progress.
+
+## Certificates
+[Course 1](./src/course1/course1_certificate.pdf)
+[Course 2](./src/course2/course2_certificate.pdf)

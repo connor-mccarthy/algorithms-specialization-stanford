@@ -8,5 +8,5 @@
 * [DFS for computing topological ordering of DAG](./week1/depth_first_search/topological_ordering/topological_ordering.py)
 * [Kosaraju's two-pass for computing strongly connected graph components](./week1/strongly_connected_components/kosaraju.py)
 * [Dijkstra's shortest path](./week2/dijkstra.py)
-* [Median maintenance via heaps](./week3/median_maintenance_assignment/median_maintenance.py)
+* [Median maintenance via heaps](./week3/median_maintenance_assignment/median_maintenance_assignment.py)
 * [TwoSum via hash table](./week4/two_sum.py)

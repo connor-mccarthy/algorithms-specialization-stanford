@@ -1,4 +1,4 @@
-from topological_sort import TopologicalSort
+from topological_ordering import TopologicalSort
 
 
 def test_topological_sort():

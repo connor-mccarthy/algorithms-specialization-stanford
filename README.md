@@ -21,7 +21,6 @@
 
 <div align="center">
 <h2>Algorithms</h2>
-<hr>
 </div>
 
 ### Course 1
@@ -48,7 +47,6 @@ In progress.
 
 <div align="center">
 <h2>Certificates</h2>
-<hr>
 </div>
 
 [Course 1](./src/course1/course1_certificate.pdf)
@@ -58,6 +56,5 @@ In progress.
 <div align="center">
 <h2>Sample Code</h2>
 <p>The final merge step of the <a href=https://en.wikipedia.org/wiki/Merge_sort>MergeSort</a> algorithm</p>
-<hr>
 </div>
 <img src="merge.svg" alt="mergesort_merge" width="700" height="auto">

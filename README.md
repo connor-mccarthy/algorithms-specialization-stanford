@@ -19,8 +19,11 @@
 <p>Code and notes for the <a href=https://www.coursera.org/specializations/algorithms>Algorithms Specialization</a> course offered by Stanford University.</p>
 </div>
 
+<div align="center">
+<h2>Algorithms</h2>
+<hr>
+</div>
 
-## Algorithms
 ### Course 1
 * [Karatsuba multiplication](./src/course1/week1/karatsuba/karatsuba.py)
 * [Merge sort](./src/course1/week1/merge_sort/merge_sort.py)
@@ -43,10 +46,18 @@
 ### Course 3
 In progress.
 
+<div align="center">
+<h2>Certificates</h2>
+<hr>
+</div>
 
-## Certificates
-* [Course 1](./src/course1/course1_certificate.pdf)
-* [Course 2](./src/course2/course2_certificate.pdf)
+[Course 1](./src/course1/course1_certificate.pdf)
 
-### A sample of the course with [MergeSort](https://en.wikipedia.org/wiki/Merge_sort):
+[Course 2](./src/course2/course2_certificate.pdf)
+
+<div align="center">
+<h2>Sample Code</h2>
+<p>The final merge step of the <a href=https://en.wikipedia.org/wiki/Merge_sort>MergeSort</a> algorithm</p>
+<hr>
+</div>
 <img src="merge.svg" alt="mergesort_merge" width="700" height="auto">

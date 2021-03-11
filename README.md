@@ -1,13 +1,24 @@
-# Stanford Algorithms Specialization
-![Build](https://github.com/connor-mccarthy/algorithms-specialization-stanford/workflows/build/badge.svg)
-[![Python 3.7.10](https://img.shields.io/badge/python-3.7.10-blue.svg)](https://www.python.org/downloads/release/python-360/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![codecov](https://codecov.io/gh/connor-mccarthy/algorithms-specialization-stanford/branch/master/graph/badge.svg?token=4AHCWFKISX)](https://codecov.io/gh/connor-mccarthy/algorithms-specialization-stanford)
+<div align="center">
+  <h1>Stanford Algorithms Specialization</h1>
 
-Code and notes for the [Algorithms Specialization](https://www.coursera.org/specializations/algorithms) course offered by Stanford University.
+<p align="center">
 
-## A portion of the [MergeSort algorithm](https://en.wikipedia.org/wiki/Merge_sort):
-<img src="merge.svg" alt="mergesort_merge" width="700" height="auto">
+<a href="https://github.com/connor-mccarthy/algorithms-specialization-stanford/workflows/build/badge.svg">
+    <img src="https://github.com/connor-mccarthy/algorithms-specialization-stanford/workflows/build/badge.svg" alt="Build" />
+</a>
+<a href="https://img.shields.io/badge/python-3.7.10-blue.svg">
+    <img src="https://img.shields.io/badge/python-3.7.10-blue.svg" alt="Python 3.7.10" />
+</a>
+<a href="https://img.shields.io/badge/code%20style-black-000000.svg">
+    <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" >
+</a>
+<a href="https://codecov.io/gh/connor-mccarthy/algorithms-specialization-stanford/branch/master/graph/badge.svg?token=4AHCWFKISX">
+    <img src="https://codecov.io/gh/connor-mccarthy/algorithms-specialization-stanford/branch/master/graph/badge.svg?token=4AHCWFKISX" alt="codecov" >
+</a>
+
+<p>Code and notes for the <a href=https://www.coursera.org/specializations/algorithms>Algorithms Specialization</a> course offered by Stanford University.</p>
+</div>
+
 
 ## Algorithms
 ### Course 1
@@ -32,6 +43,10 @@ Code and notes for the [Algorithms Specialization](https://www.coursera.org/spec
 ### Course 3
 In progress.
 
+
 ## Certificates
-[Course 1](./src/course1/course1_certificate.pdf)
-[Course 2](./src/course2/course2_certificate.pdf)
+* [Course 1](./src/course1/course1_certificate.pdf)
+* [Course 2](./src/course2/course2_certificate.pdf)
+
+### A sample of the course with [MergeSort](https://en.wikipedia.org/wiki/Merge_sort):
+<img src="merge.svg" alt="mergesort_merge" width="700" height="auto">

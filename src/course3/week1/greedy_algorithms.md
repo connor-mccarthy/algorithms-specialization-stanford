@@ -21,6 +21,34 @@ Method 2: Exchange argument
 
 Method 3: Whatever works! Sometimes it's not clear what the best approach is
 
+## Application: Optimal caching
+The caching problem:
+* There is a small fast memory (the cache)
+* There is big slow memory (the main memory)
+
+The task:
+* Process a sequence of "page requests"
+* On a "fault" (that is, a cache miss), need to evict something from the cache to make room for the thing that isn't already there
+
+## Example
+Cache: a, b, c, d
+Request sequence: c, d, e
+
+e isn't in the cache, so maybe we evict a to make room for e (cache: e, b, c, d)... and so on... but then what if a (or something else we evicted comes back in the sequence?)
+
+## The optimal caching algorithm
+__Theorem:__ the "furthest-in-future" algorithm is __optimal__ (i.e., minimizes the number of cache misses)
+
+--> this assumes you know what is coming in the future
+
+__Why is it useful?__
+1) Serves as a guideline for practical algorithms (e.g. LRU (least-recently used) cache should do well)
+* LRU --> assumes the most recently requested recently will be requested again sooon, and the data referenced furthest in the past will be referenced furthest in the future (does well provided data exhibits locality of reference)
+2) Serves as idealized benchmark for caching algorithms (e.g., if you implement LRU, you can cross-validate it with what actually happens, after the future happens)
+
+__Proof:__ tricky exchange argument, not covered in this course, however
+
+
 ### Application: scheduling
 * Tasks to be completed are called jobs
 * Each job j has a known length l_j, which is the amount of time required to process the job
@@ -40,3 +68,29 @@ One way to make trade-offs between jobs is to minimize the sum of weighted compl
 
 ## Two special cases
 The first step is to solve two special cases of the general problem, then use those to suggest what a greedy algorithm would look like in the general case.
+
+1) If all jobs have the same length, schedule them from largest weight to smallest weight
+
+2) if all jobs have same weight, schedule from shortest length to longest length
+
+__Question:__ What is w_i > w_j, but l_i > l_i?
+__Idea:__ Assign "scores" to jobs that are:
+* Increasing in weight
+* Decreasing in length
+
+Guess 1: order jobs by decreasing value of w_j - l_j
+Guess 2: order l_j / w_j
+
+To distinguish and rule one out: find an example where the two algorithms produce different outputs (at least one will be incorrect)
+
+Example: l_1 = 5; w_1 = 3; l_2 = 2; w_2 = 1
+
+__Question:__ What is the sum of weighted completion times of algorithms 1 and 2 respectively? 23 and 22 --> so we know algorithm one is not correct. We don't know if algorithm two is correct.
+
+It turns out that algorithm 2 is actually correct.
+
+## Proof
+__Claim:__ Ordering jobs by decreasing ratio weight / length is always correct
+
+__Proof:__ By an exchange argument
+

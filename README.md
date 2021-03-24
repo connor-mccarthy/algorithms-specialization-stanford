@@ -43,7 +43,8 @@
 * [TwoSum via hash table](./src/course2/week4/two_sum.py)
 
 ### Course 3
-In progress.
+* [Greedy scheduling algorithm](./src/course3/week1/scheduling/scheduler.py)
+* [Prim's minimum spanning tree algorithm](./src/course3/week1/prims_mst/prims.py)
 
 <div align="center">
 <h2>Certificates</h2>

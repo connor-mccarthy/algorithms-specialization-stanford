@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 Weight = int
 Length = int
@@ -8,11 +8,11 @@ Tasks = List[Tuple[Weight, Length]]
 Ordering = List[int]
 
 
-def score_task(weight: Weight, length: Length):
+def score_task(weight: Weight, length: Length) -> Union[int, float]:
     return weight / length
 
 
-def get_weighted_sum_completion_time(ordered_tasks: Tasks):
+def get_weighted_sum_completion_time(ordered_tasks: Tasks) -> int:
     score = 0
     cum_length = 0
     for weight, length in ordered_tasks:

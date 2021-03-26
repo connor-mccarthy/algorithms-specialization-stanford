@@ -44,3 +44,19 @@ def test_graph_setting():
     new_edge = Edge(1, 3, 5)
     graph[1] = new_edge
     assert graph[1] == new_edge
+
+
+def test_add_edge():
+    graph = Graph(Edge(1, 2, 1))
+    new_graph = graph + Edge(1, 3, 4)
+    assert new_graph.size == 2
+
+
+def test_graph_cost():
+    graph = Graph(Edge(1, 2, 1), Edge(1, 3, 4))
+    assert graph.cost == 5
+
+
+def test_graph_vertices():
+    graph = Graph(Edge(1, 2, 1), Edge(1, 3, 4))
+    assert graph.vertices == {1, 2, 3}

@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterator, List, Optional, Tuple
+from typing import Iterator, Optional, Set
 
 
-@dataclass
+@dataclass(unsafe_hash=True)
 class Edge:
     start: int
     end: int
@@ -37,9 +37,6 @@ class Graph:
     def __iter__(self) -> Iterator:
         return iter(self.edges)
 
-    def as_primitives(self) -> List[Tuple[int, int, int]]:
-        return [edge.as_tuple() for edge in self.edges]
-
     @property
     def size(self) -> int:
         return len(self.edges)
@@ -55,12 +52,44 @@ class Graph:
             all(edge in self for edge in other)
         )
 
-    def __delitem__(self, key):
+    def __delitem__(self, key: int) -> None:
         del self.edges[key]
 
-    def __getitem__(self, key):
+    def __getitem__(self, key: int) -> Edge:
         return self.edges[key]
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: int, value: Edge) -> None:
         assert isinstance(value, Edge)
         self.edges[key] = value
+
+    def __add__(self, edge: object) -> Graph:
+        if not isinstance(edge, Edge):
+            return NotImplemented
+        edges = self.edges + [edge]
+        return Graph(*edges)
+
+    @property
+    def starts(self) -> Set[int]:
+        return {edge.start for edge in self}
+
+    @property
+    def ends(self) -> Set[int]:
+        return {edge.ends for edge in self}
+
+    @property
+    def cost(self) -> int:
+        return sum(edge.weight for edge in self.edges)
+
+    @property
+    def vertices(self) -> Set[int]:
+        vertices = set()
+        for edge in self:
+            vertices.add(edge.start)
+            vertices.add(edge.end)
+        return vertices
+
+    def __str__(self):
+        if self.size > 10:
+            return str(self.edges[:10])[:-1] + "..." + "]"
+        else:
+            return str(self.edges)

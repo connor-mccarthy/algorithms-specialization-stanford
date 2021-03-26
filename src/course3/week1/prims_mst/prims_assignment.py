@@ -1,5 +1,6 @@
 import os
 
+from prims import prims
 from prims_data_structures import Edge, Graph
 
 
@@ -14,4 +15,11 @@ def get_data() -> Graph:
     return Graph(Edge(*edge_data) for edge_data in data)
 
 
-print(get_data())
+def main() -> int:
+    graph = get_data()
+    mst = prims(graph)
+    return mst.cost
+
+
+if __name__ == "__main__":
+    print(main())

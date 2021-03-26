@@ -8,4 +8,5 @@ def test_prims():
     )
     expected_graph = Graph(Edge(1, 2, 1), Edge(1, 3, 4), Edge(2, 4, 2))
     actual_graph = prims(input_graph)
+    print(actual_graph)
     assert actual_graph == expected_graph

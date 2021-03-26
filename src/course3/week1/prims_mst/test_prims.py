@@ -21,6 +21,10 @@ def test_graph_iterable():
 
 def test_graph_equality():
     assert Graph(Edge(1, 2, 1), Edge(1, 3, 4)) == Graph(Edge(1, 3, 4), Edge(1, 2, 1))
+    assert Graph(Edge(1, 2, 1), Edge(1, 3, 4)) == Graph(Edge(1, 3, 4), Edge(2, 1, 1))
+    assert Graph(Edge(1, 2, 1), Edge(1, 3, 4)) != Graph(
+        Edge(1, 3, 4), Edge(1, 2, 1), Edge(1, 2, 1)
+    )
 
 
 def test_prims():

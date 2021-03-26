@@ -86,3 +86,56 @@ __Proof:__ Prim's algorithm outputs a spanning tree T*
 __Key point__: every edge e we add to T* is explicitly justified by the cut property
 * T* is a subset of the MST
 * since t* is already a spanning tree, it must be the MST
+
+
+## Implementation
+### Simple implementation
+* Initialize x = [s] [s is randomly chosen from v]
+* T (minimum spanning tree) does not exist yet [invariant: X = vertices spanned by tree-so-far T]
+* While X != V:
+    * Let e = (u, v) be the cheapest edge of F with u ∈ X, v ∉ X
+    * Add e to T
+    * Add v to X
+
+i.e., increase # of spanned vertices in cheapest way possible
+
+Running time of straightforward implementation
+* O(n) iterations [where n = # of vertices]
+* O(m) time per iteration [where m = # of edges]
+--> O(mn) time
+
+Like with Dijkstra's, we can speed up the algorithm with heaps, which are good at minimum computations
+
+Specifically: a heap supports insert, extract-min, and delete in O(logn) time [where n=# objects in the loop]
+
+__Natural idea:__ use heaps to store edges, with keys = edge costs --> leads to an O(mlogn) implementation of Prim's algorithm
+
+__But:__ using heaps to store vertices results in the same O(mlogn) running time, but with smaller constants, so we'll do that
+
+### Prim's algorithm with heaps
+
+__Invariant #1:__ elements in heap = vertices of V - X
+__Invariant #2:__ for v ∈ V-X, key[v] = cheapest edge (u, v) with v ∈ X [or + infinity if no such edges exist]
+
+We can initialize heap with O(m + nlogn) = O(mlogn) preprocessing -> It's O(m) to compute keys and O(nlogn) for n-1 inserts
+
+Note: extract-min yields next vertex v ∉ X and edge (u, v) crossing (X, V-X) to add to X and T, respectively
+
+How do we maintain invariant #2?
+__Issue:__ when we add a new vertex to the MST, we might need to recompute some keys to maintain invariant #2 after each extract-min
+
+__Pseudocode:__
+When v is added to X:
+    * For each edge (v, w) ∈ E:
+        * If w ∈ V - X:
+            * Delete w from heap
+            * Recompute key[w] := min[key[w], (v, w)]
+            * Re-insert w into heap
+
+__Running time with heaps:__
+* Dominated by time required for heap operations
+* (n-1) inserts during preprocessing
+* (n-1) extract-mins come per iteration of while loop
+* Each edge (v, 1) triggers one delete/insert combo [when its first endpoint gets sucked into X]
+--> O(m) heap operations per iteration
+--> O(mlogn) time

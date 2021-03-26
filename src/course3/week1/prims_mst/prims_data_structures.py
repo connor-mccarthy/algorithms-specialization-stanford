@@ -32,7 +32,7 @@ class Edge:
 
 class Graph:
     def __init__(self, *edges) -> None:
-        self.edges = edges
+        self.edges = list(edges)
 
     def __iter__(self) -> Iterator:
         return iter(self.edges)
@@ -54,3 +54,13 @@ class Graph:
         return (all(edge in other for edge in self)) and (
             all(edge in self for edge in other)
         )
+
+    def __delitem__(self, key):
+        del self.edges[key]
+
+    def __getitem__(self, key):
+        return self.edges[key]
+
+    def __setitem__(self, key, value):
+        assert isinstance(value, Edge)
+        self.edges[key] = value

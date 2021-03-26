@@ -1,6 +1,6 @@
 import os
 
-from prims import Edge, Graph
+from prims_data_structures import Edge, Graph
 
 
 def get_data() -> Graph:

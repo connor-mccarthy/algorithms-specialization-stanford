@@ -1,4 +1,5 @@
-from prims import Edge, Graph, prims
+from prims import prims
+from prims_data_structures import Edge, Graph
 
 
 def test_edge_equality():

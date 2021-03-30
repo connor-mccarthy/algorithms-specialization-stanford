@@ -110,6 +110,14 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
 
 [[package]]
+name = "disjoint-set"
+version = "0.7.2"
+description = "Disjoint Set data structure implementation for Python"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[[package]]
 name = "distlib"
 version = "0.3.1"
 description = "Distribution utilities"
@@ -578,7 +586,7 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7.1,<4.0"
-content-hash = "7179f1296c6a0dadf458ead4be5bbc818c6136a6a0cdb9dd778841aebd410b82"
+content-hash = "45197b20e0f37f6892e31053912636df77cb5c3bb76d607594167256244e17fd"
 
 [metadata.files]
 appdirs = [
@@ -670,6 +678,10 @@ coverage = [
 decorator = [
     {file = "decorator-4.4.2-py2.py3-none-any.whl", hash = "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760"},
     {file = "decorator-4.4.2.tar.gz", hash = "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"},
+]
+disjoint-set = [
+    {file = "disjoint_set-0.7.2-py3-none-any.whl", hash = "sha256:9447c6b446a00230cbe7004b7ba9897dd672d05e32fc7d3a68b2a726828ea532"},
+    {file = "disjoint_set-0.7.2.tar.gz", hash = "sha256:a2bd31a7c6d75ef108bb350fba1572c39da8a48c69bef77857a91e843432e725"},
 ]
 distlib = [
     {file = "distlib-0.3.1-py2.py3-none-any.whl", hash = "sha256:8c09de2c67b3e7deef7184574fc060ab8a793e7adbb183d942c389c8b13c52fb"},

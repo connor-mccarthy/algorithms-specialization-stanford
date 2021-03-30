@@ -45,6 +45,8 @@
 ### Course 3
 * [Greedy scheduling algorithm](./src/course3/week1/scheduling/scheduler.py)
 * [Prim's minimum spanning tree algorithm](./src/course3/week1/prims_mst/prims.py)
+* [Kruskal's minimum spanning tree algorithm](./src/course3/week2/kruskal/kruskal.py)
+* [Clustering](./src/course3/week2/clustering/clustering.py)
 
 <div align="center">
 <h2>Certificates</h2>

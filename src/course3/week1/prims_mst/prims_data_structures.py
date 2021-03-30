@@ -1,33 +1,32 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Iterator, Optional, Set
+from typing import Iterator, Set, Union
 
 
 @dataclass(unsafe_hash=True)
 class Edge:
     start: int
     end: int
-    weight: Optional[int] = None
-
-    @property
-    def is_weighted(self) -> bool:
-        return hasattr(self, "weight") and self.weight is not None
-
-    def as_tuple(self):
-        return (self.start, self.end, self.weight)
+    weight: Union[int, float]
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Edge):
-            return NotImplemented
-        if (
+            raise NotImplementedError
+        return (
             set((self.start, self.end)) == set((other.start, other.end))
-            and self.is_weighted == other.is_weighted
-        ):
-            if not self.is_weighted or self.weight == other.weight:
-                return True
-        else:
-            return False
+            and self.weight == other.weight
+        )
+
+    def __lt__(self, other: Edge) -> bool:
+        if not isinstance(other, Edge):
+            raise NotImplementedError
+        return self.weight < other.weight
+
+    def __le__(self, other: Edge) -> bool:
+        if not isinstance(other, Edge):
+            raise NotImplementedError
+        return self.weight <= other.weight
 
 
 class Graph:
@@ -43,7 +42,7 @@ class Graph:
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Graph):
-            return NotImplemented
+            raise NotImplementedError
 
         if self.size != other.size:
             return False
@@ -64,7 +63,7 @@ class Graph:
 
     def __add__(self, edge: object) -> Graph:
         if not isinstance(edge, Edge):
-            return NotImplemented
+            raise NotImplementedError
         edges = self.edges + [edge]
         return Graph(*edges)
 
@@ -74,7 +73,7 @@ class Graph:
 
     @property
     def ends(self) -> Set[int]:
-        return {edge.ends for edge in self}
+        return {edge.end for edge in self}
 
     @property
     def cost(self) -> int:
@@ -88,8 +87,11 @@ class Graph:
             vertices.add(edge.end)
         return vertices
 
-    def __str__(self):
+    def __str__(self):  # pragma: no cover
         if self.size > 10:
             return str(self.edges[:10])[:-1] + "..." + "]"
         else:
             return str(self.edges)
+
+    def reverse(self) -> Graph:
+        return Graph(*[Edge(edge.end, edge.start, edge.weight) for edge in self.edges])

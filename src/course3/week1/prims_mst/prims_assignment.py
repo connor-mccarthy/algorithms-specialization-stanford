@@ -12,7 +12,7 @@ def get_data() -> Graph:
         lines = f.readlines()
     lines = [tuple(line.strip().split()) for line in lines][1:]  # type: ignore
     data = [tuple(int(item) for item in line) for line in lines]
-    return Graph(Edge(*edge_data) for edge_data in data)
+    return Graph(*[Edge(*edge_data) for edge_data in data])
 
 
 def main() -> int:

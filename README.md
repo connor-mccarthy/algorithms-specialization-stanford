@@ -46,7 +46,9 @@
 * [Greedy scheduling algorithm](./src/course3/week1/scheduling/scheduler.py)
 * [Prim's minimum spanning tree algorithm](./src/course3/week1/prims_mst/prims.py)
 * [Kruskal's minimum spanning tree algorithm](./src/course3/week2/kruskal/kruskal.py)
-* [Clustering](./src/course3/week2/clustering/clustering.py)
+* [Maximally spaced k-clustering](./src/course3/week2/clustering/clustering.py)
+* [Huffman optimal binary prefix-free encoding](./src/course3/week3/huffman_codes/huffman.py)
+* [Max weight independent set in path graph](./src/course3/week3/dynamic_programming/wis.py)
 
 <div align="center">
 <h2>Certificates</h2>

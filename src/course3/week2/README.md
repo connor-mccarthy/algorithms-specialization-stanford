@@ -2,4 +2,4 @@
 
 ## Algorithms
 * [Kruskal's minimum spanning tree algorithm](./kruskal/kruskal.py)
-* [Clustering](./clustering/clustering.py)
+* [Maximally spaced k-clustering](./clustering/clustering.py)

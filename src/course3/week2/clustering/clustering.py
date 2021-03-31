@@ -1,6 +1,6 @@
 from disjoint_set import DisjointSet
 
-from graph_data_structures import Graph
+from graph_data_structures2 import Graph
 
 
 class DisjointSetWithSize(DisjointSet):

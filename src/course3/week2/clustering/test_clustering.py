@@ -1,5 +1,5 @@
 from clustering import clustering
-from graph_data_structures import Edge, Graph
+from graph_data_structures2 import Edge, Graph
 
 
 def test_clustering():

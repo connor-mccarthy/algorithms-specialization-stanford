@@ -4,7 +4,7 @@ from typing import Dict, List, Optional
 import numpy as np
 
 from clustering import clustering
-from graph_data_structures import Edge, Graph
+from graph_data_structures2 import Edge, Graph
 
 Bits = List[int]
 

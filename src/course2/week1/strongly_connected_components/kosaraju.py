@@ -66,21 +66,3 @@ class Kosaraju:
         self.visited = [False] * (self.num_nodes + 1)
         self.second_pass()
         return self.aggregate_scc()
-
-
-# graph = {
-#     1: [7],
-#     2: [5],
-#     3: [9],
-#     4: [1],
-#     5: [8],
-#     6: [3, 8],
-#     7: [4, 9],
-#     8: [2],
-#     9: [6],
-# }
-# graph = [[1, 7], [2, 5], [3, 9], [4, 1], [5, 8], [6, 3, 8], [7, 4, 9], [8, 2], [9, 6]]
-# graph = [[0, 6], [1, 4], [2, 8], [3, 0], [4, 7], [5, 2, 7], [6, 3, 8], [7, 1], [8, 5]]
-# kosaraju = Kosaraju(graph)
-# actual = kosaraju.run()
-# print(actual)

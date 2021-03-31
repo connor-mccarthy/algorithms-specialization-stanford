@@ -23,31 +23,24 @@ def get_small_data() -> Graph:
     return Graph(*[Edge(*edge_data) for edge_data in lines])
 
 
-def convert_bits_to_graph(bits: List[Bits]) -> Graph:
-    pass
-
-
-def get_hamming_distance(array: np.ndarray) -> np.ndarray:
-    return 2 * np.inner(array - 0.5, 0.5 - array) + array.shape[1] / 2
-    # return sum(b1 == b2 for b1, b2 in zip(bits1, bits2))
-
-
 def get_big_data() -> List[List[int]]:
     MAX_DISTANCE = 3
     data = get_data("clustering_big.txt")
     data = list({tuple(sub) for sub in data})
     data = [list(sub) for sub in data]
 
-    data = np.array(data)
+    data = np.array(data, dtype=np.uint32)
     distance_matrix = get_hamming_distance(data)
     del data
     edges = np.argwhere((distance_matrix > 0) & (distance_matrix < MAX_DISTANCE))
+    del distance_matrix
     edges = list({tuple(sorted(sub)) for sub in edges})
     return [list(edge) for edge in edges]
 
 
-def sort_graph(graph: Graph) -> Graph:
-    return Graph(*sorted(graph, key=lambda edge: edge.weight))
+def get_hamming_distance(array: np.ndarray) -> np.ndarray:
+    return (array[:, None, :] != array).sum(2)
+    # return 2 * np.inner(array - 0.5, 0.5 - array).astype(np.uint32) + array.shape[1] / 2
 
 
 # this is code from a previous section src/course2/week1/strongly_connected_components/kosaraju.py
@@ -119,8 +112,7 @@ class Kosaraju:
 
 
 def main() -> None:
-    small_graph = get_small_data()
-    small_data_answer = clustering(small_graph, k=4)
+    small_data_answer = clustering(get_small_data(), k=4)
     print("Question 1 answer:", small_data_answer)
 
     big_graph = get_big_data()

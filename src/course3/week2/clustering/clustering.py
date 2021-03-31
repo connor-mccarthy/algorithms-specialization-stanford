@@ -28,6 +28,3 @@ def clustering(graph: Graph, k: int) -> int:
             ds.union(component_1, component_2)
 
     raise Exception("Clustering did not terminate.")
-
-
-# 16508

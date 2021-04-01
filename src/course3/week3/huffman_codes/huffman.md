@@ -54,3 +54,26 @@ __Input:__ probability p_i for each character i ∈ Σ
 __Notation:__ if T=tree with leaves <--> symbols of Σ, then L(T) = average length encoding = Σ (sum over i ∈ Σ) p_i * [depth of i in T] = average depth of i in T where weights are p_i
 
 __Output:__ a binary tree T minimizing the average encoding length L(i)
+
+## The solution
+### Building a tree
+__Question:__ whaht's a principled approach for buildin a tree with leaves <--> symbol of Σ
+__Natural but suboptimal idea:__ top-down / divide and conquer
+* partition  Σ into  Σ, Σ_2 each with ~50% of total frequency
+* recursively compute T for  Σ, T_2 for Σ, return the tree
+
+__Huffman's (optimal) idea:__ build tree bottom-up, using successive mergers
+
+__Question:__ which pair of symbols is "safe" to merge?
+__Observation:__ final encoding of i ∈ Σ = # of mergers its subtree endures --> we want to merge is from least to most frequency
+
+### How to recurse?
+__Suppose:__ 1st iteration of algorithm merges symbols a & b
+__Idea:__ replace the symbols a, b by a new meta symbol with p_a + p_b
+
+__Actual recusion:__
+* merge together least probable symbols, treat these merged symbols as a meta-symbol with p_meta_symbol = sum(prob of all symbols in meta symbol)
+* the tree is built by reversing the bullet above
+
+### Huffman's algorithm
+![huffmans_algorithm](huffmans_algorithm.png)

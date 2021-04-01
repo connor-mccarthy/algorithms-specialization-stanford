@@ -18,3 +18,8 @@ comment:
   layout: "reach,diff,flags,files,footer"
   behavior: default
   require_changes: no
+
+ignore:
+  - week2/clustering/graph_data_structures2.py
+  - week2/kruskal/graph_data_structures.py
+

@@ -49,6 +49,7 @@
 * [Maximally spaced k-clustering](./src/course3/week2/clustering/clustering.py)
 * [Huffman optimal binary prefix-free encoding](./src/course3/week3/huffman_codes/huffman.py)
 * [Max weight independent set in path graph](./src/course3/week3/dynamic_programming/wis.py)
+* [The Knapsack Problem](./src/course3/week4/knapsack_problem/knapsack.py)
 
 <div align="center">
 <h2>Certificates</h2>

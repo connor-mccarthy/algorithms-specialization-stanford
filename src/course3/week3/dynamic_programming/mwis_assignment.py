@@ -9,11 +9,16 @@ def get_data() -> Nodes:
     filepath = os.path.join(directory, filename)
     with open(filepath, "r") as f:
         lines = f.readlines()
-    return [int(line) for line in lines][1:]
+    return [int(line.strip()) for line in lines][1:-1]
 
 
-def main():
+def main() -> str:
     data = get_data()
-    indep_set = mwis(data)
+    indices = mwis(data)
     comparison_nodes = [1, 2, 3, 4, 17, 117, 517, 997]
-    return "".join(int(node in indep_set) for node in comparison_nodes)
+    adj_comparison_nodes = [i - 1 for i in comparison_nodes]
+    return "".join(str(int(node in indices)) for node in adj_comparison_nodes)
+
+
+if __name__ == "__main__":
+    print(main())

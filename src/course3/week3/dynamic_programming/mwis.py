@@ -26,5 +26,8 @@ def mwis(nodes: Nodes) -> Indices:
             indep_set.add(i)
             i -= 2
 
+    if i == 1:
+        indep_set.add(1)
+
     # all the indices are off by one because of the bookkeeping done by the weights array; they're also reversed
-    return set(sorted({i - 1 for i in indep_set}))
+    return {i - 1 for i in indep_set}

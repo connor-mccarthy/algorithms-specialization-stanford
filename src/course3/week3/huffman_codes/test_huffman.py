@@ -14,7 +14,5 @@ expected2 = {0: "000", 1: "0010", 2: "10", 3: "01", 4: "0011", 5: "11"}
 )
 def test_huffman(input_data, expected):
     actual = huffman(input_data)
-    print(actual)
-    print(expected)
     for i, weight in enumerate(input_data):
         assert actual[i] == expected[i]

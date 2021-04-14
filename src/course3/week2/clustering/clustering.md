@@ -3,7 +3,7 @@ __Informal goals:__ given n "points" [web pages, images, genome fragments, etc.]
 
 __Assumptions:__
 1) as input, given a (dis)similarity measure --> a distance d(p, q) between each point pair.
-1) symmetric [i.e. d(p, q) = d(q, p)]
+2) symmetric [i.e. d(p, q) = d(q, p)]
 
 Examples: Euclidean distance, genome similarity, etc.
 

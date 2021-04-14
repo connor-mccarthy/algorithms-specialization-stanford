@@ -27,4 +27,4 @@ def clustering(graph: Graph, k: int) -> int:
             component_2 = ds.find(edge.end)
             ds.union(component_1, component_2)
 
-    raise Exception("Clustering did not terminate.")
+    raise Exception("Clustering did not terminate.")  # pragma: no cover

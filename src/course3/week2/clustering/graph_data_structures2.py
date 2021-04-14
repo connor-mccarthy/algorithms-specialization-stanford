@@ -1,4 +1,3 @@
-# pragma: no cover --> this is a direct cope of the file from prims and is tested thoroughly there
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -6,7 +5,7 @@ from typing import Iterator, Set, Union
 
 
 @dataclass(unsafe_hash=True)
-class Edge:
+class Edge:  # pragma: no cover -> this is a direct copy of the file from prims and is tested thoroughly there
     start: int
     end: int
     weight: Union[int, float]
@@ -34,7 +33,7 @@ class Edge:
         return {self.start, self.end}
 
 
-class Graph:
+class Graph:  # pragma: no cover -> this is a direct copy of the file from prims and is tested thoroughly there
     def __init__(self, *edges) -> None:
         self.edges = list(edges)
 
@@ -92,7 +91,7 @@ class Graph:
             vertices.add(edge.end)
         return vertices
 
-    def __str__(self):  # pragma: no cover
+    def __str__(self):
         if self.size > 10:
             return str(self.edges[:10])[:-1] + "..." + "]"
         else:

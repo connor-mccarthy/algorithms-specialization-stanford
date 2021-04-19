@@ -1,4 +1,5 @@
 # Course 3: Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming
+> [Course certificate](./course3_certificate.pdf)
 
 ## Algorithms
 * [Greedy scheduling algorithm](./week1/scheduling/scheduler.py)

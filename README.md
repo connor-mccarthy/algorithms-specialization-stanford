@@ -58,3 +58,5 @@
 [Course 1](./src/course1/course1_certificate.pdf)
 
 [Course 2](./src/course2/course2_certificate.pdf)
+
+[Course 3](./src/course3/course3_certificate.pdf)

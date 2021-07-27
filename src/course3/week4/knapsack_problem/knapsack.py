@@ -10,7 +10,7 @@ class Item:
     size: int
 
 
-np.set_printoptions(formatter={"float": lambda x: "{0:0.3f}".format(x)})
+np.set_printoptions(formatter={"float": lambda x: "{0:0.3f}".format(x)})  # type: ignore
 
 
 def construct_array(items: List[Item], capacity: int) -> np.ndarray:

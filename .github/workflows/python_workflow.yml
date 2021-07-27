@@ -4,38 +4,37 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.7.10
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7.10
-    - name: Python environment cache set up
-      uses: actions/cache@v2
-      with:
-        path: ${{ env.pythonLocation }}
-        key: ${{ env.pythonLocation }}-${{ hashFiles('poetry.lock') }}-${{ hashFiles('dev_requirements.txt') }}
-    - name: Install dependencies
-      run: |
-        pip install --upgrade pip
-        pip install -r dev_requirements.txt
-    - name: Lint with flake8
-      run: |
-        flake8 .
-    - name: Check formatting with black
-      run: |
-        black --check .
-    - name: Check typehints with mypy
-      run: |
-        mypy .
-    - name: Test with pytest
-      run: |
-        pytest --cov=./
-    - name: Upload codecov
-      uses: codecov/codecov-action@v1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        fail_ci_if_error: true
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.7.11
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7.11
+      - name: Python environment cache set up
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ env.pythonLocation }}-${{ hashFiles('poetry.lock') }}-${{ hashFiles('dev_requirements.txt') }}
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r dev_requirements.txt
+      - name: Lint with flake8
+        run: |
+          flake8 .
+      - name: Check formatting with black
+        run: |
+          black --check .
+      - name: Check typehints with mypy
+        run: |
+          mypy .
+      - name: Test with pytest
+        run: |
+          pytest --cov=./
+      - name: Upload codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
